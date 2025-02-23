@@ -1161,18 +1161,17 @@ function sumar(...numeros) {
 }
 console.log(sumar(1, 2, 3)); // 6
 ```
-##
-1. Object.keys()
-¿Qué es Object.keys()?
+
+## Object.keys()
+### ¿Qué es Object.keys()?
 Object.keys() es un método que devuelve un array con las claves (propiedades enumerables) de un objeto.
 
 Sintaxis:
-javascript
-
+```javascript
 Object.keys(objeto);
+```
 Ejemplo básico:
-javascript
-
+```javascript
 const persona = {
   nombre: "Juan",
   edad: 30,
@@ -1181,32 +1180,33 @@ const persona = {
 
 const claves = Object.keys(persona);
 console.log(claves); // Salida: ["nombre", "edad", "profesion"]
-Usos comunes:
+```
+### Usos comunes:
 Recorrer las propiedades de un objeto:
 
-javascript
-
+```javascript
 claves.forEach(clave => {
   console.log(`${clave}: ${persona[clave]}`);
 });
+```
 Verificar si un objeto tiene propiedades:
 
-javascript
+```javascript
 
 if (Object.keys(persona).length === 0) {
   console.log("El objeto está vacío");
 }
-2. Object.values()
-¿Qué es Object.values()?
+```
+## Object.values()
+### ¿Qué es Object.values()?
 Object.values() es un método que devuelve un array con los valores de las propiedades enumerables de un objeto.
 
 Sintaxis:
-javascript
-
+```javascript
 Object.values(objeto);
+```
 Ejemplo básico:
-javascript
-
+```javascript
 const persona = {
   nombre: "Juan",
   edad: 30,
@@ -1215,18 +1215,18 @@ const persona = {
 
 const valores = Object.values(persona);
 console.log(valores); // Salida: ["Juan", 30, "Desarrollador"]
-Usos comunes:
+```
+### Usos comunes:
 Recorrer los valores de un objeto:
 
-javascript
-
+```javascript
 valores.forEach(valor => {
   console.log(valor);
 });
+```
 Sumar valores numéricos de un objeto:
 
-javascript
-
+```javascript
 const total = Object.values(persona).reduce((acc, valor) => {
   if (typeof valor === "number") {
     return acc + valor;
@@ -1234,98 +1234,99 @@ const total = Object.values(persona).reduce((acc, valor) => {
   return acc;
 }, 0);
 console.log(total); // Salida: 30
-3. Operador Spread (...)
-¿Qué es el operador spread?
+```
+## Operador Spread (...)
+### ¿Qué es el operador spread?
 El operador spread (...) permite "expandir" un iterable (como un array o un objeto) en lugares donde se esperan múltiples elementos o pares clave-valor.
 
 Sintaxis:
-javascript
-
+```javascript
 ...iterable;
+```
 Ejemplos:
-a) Con arrays:
+#### Con arrays:
 Copiar un array:
 
-javascript
-
+```javascript
 const numeros = [1, 2, 3];
 const copiaNumeros = [...numeros];
 console.log(copiaNumeros); // Salida: [1, 2, 3]
+```
 Concatenar arrays:
 
-javascript
-
+```javascript
 const masNumeros = [4, 5, 6];
 const todosLosNumeros = [...numeros, ...masNumeros];
 console.log(todosLosNumeros); // Salida: [1, 2, 3, 4, 5, 6]
-b) Con objetos:
+```
+#### Con objetos:
 Copiar un objeto:
 
-javascript
-
+```javascript
 const persona = { nombre: "Juan", edad: 30 };
 const copiaPersona = { ...persona };
 console.log(copiaPersona); // Salida: { nombre: "Juan", edad: 30 }
+```
 Combinar objetos:
 
-javascript
+``` javascript
 
 const detalles = { profesion: "Desarrollador" };
 const personaCompleta = { ...persona, ...detalles };
 console.log(personaCompleta); // Salida: { nombre: "Juan", edad: 30, profesion: "Desarrollador" }
-c) En llamadas a funciones:
+```
+#### En llamadas a funciones:
 Pasar elementos de un array como argumentos:
 
-javascript
-
+```javascript
 function sumar(a, b, c) {
   return a + b + c;
 }
 const numeros = [1, 2, 3];
 console.log(sumar(...numeros)); // Salida: 6
-4. Operador Rest (...)
-¿Qué es el operador rest?
+```
+## Operador Rest (...)
+### ¿Qué es el operador rest?
 El operador rest (...) permite representar un número indefinido de argumentos como un array. Se usa en la definición de funciones para capturar todos los argumentos restantes.
 
 Sintaxis:
-javascript
-
+```javascript
 function nombreFuncion(...args) {
   // args es un array con todos los argumentos
 }
+```
 Ejemplos:
-a) En funciones:
+#### En funciones:
 Capturar todos los argumentos:
 
-javascript
-
+```javascript
 function sumar(...numeros) {
   return numeros.reduce((acc, num) => acc + num, 0);
 }
 console.log(sumar(1, 2, 3, 4)); // Salida: 10
-b) En desestructuración:
+```
+#### En desestructuración:
 Capturar elementos restantes de un array:
 
-javascript
-
+```javascript
 const [primero, segundo, ...resto] = [1, 2, 3, 4, 5];
 console.log(primero); // Salida: 1
 console.log(segundo); // Salida: 2
 console.log(resto); // Salida: [3, 4, 5]
+```
 Capturar propiedades restantes de un objeto:
 
-javascript
-
+```javascript
 const persona = { nombre: "Juan", edad: 30, profesion: "Desarrollador" };
 const { nombre, ...detalles } = persona;
 console.log(nombre); // Salida: "Juan"
 console.log(detalles); // Salida: { edad: 30, profesion: "Desarrollador" }
-5. Conceptos avanzados
-a) Object.keys() y Object.values() con objetos complejos:
+```
+### Conceptos avanzados
+#### Object.keys() y Object.values() con objetos complejos:
 Puedes usar estos métodos con objetos anidados o que contienen funciones.
 
-javascript
-
+```javascript
 const objetoComplejo = {
   nombre: "Juan",
   edad: 30,
@@ -1333,59 +1334,60 @@ const objetoComplejo = {
     console.log("Hola");
   }
 };
+
 console.log(Object.keys(objetoComplejo)); // Salida: ["nombre", "edad", "saludar"]
 console.log(Object.values(objetoComplejo)); // Salida: ["Juan", 30, [Function: saludar]]
-b) Spread y rest con objetos dinámicos:
+```
+#### Spread y rest con objetos dinámicos:
 Puedes combinar spread y rest para manipular objetos dinámicamente.
 
-javascript
-
+```javascript
 const persona = { nombre: "Juan", edad: 30 };
 const nuevosDatos = { profesion: "Desarrollador", ciudad: "Madrid" };
 const personaActualizada = { ...persona, ...nuevosDatos };
 console.log(personaActualizada); // Salida: { nombre: "Juan", edad: 30, profesion: "Desarrollador", ciudad: "Madrid" }
-c) Spread y rest en funciones variádicas:
+```
+#### Spread y rest en funciones variádicas:
 Las funciones variádicas son aquellas que aceptan un número variable de argumentos. El operador rest es perfecto para esto.
 
-javascript
-
+```javascript
 function concatenar(...strings) {
   return strings.join(" ");
 }
 console.log(concatenar("Hola", "mundo", "!")); // Salida: "Hola mundo !"
-6. Usos comunes
-a) Manipulación de objetos y arrays:
+```
+### Usos comunes
+#### Manipulación de objetos y arrays:
 Copiar, combinar o extraer propiedades de objetos y arrays.
 
 Ejemplo:
 
-javascript
-
+```javascript
 const usuario = { nombre: "Ana", edad: 25 };
 const usuarioConEmail = { ...usuario, email: "ana@example.com" };
 console.log(usuarioConEmail);
-b) Funciones flexibles:
+```
+#### Funciones flexibles:
 Crear funciones que acepten un número variable de argumentos.
 
 Ejemplo:
 
-javascript
-
+```javascript
 function logear(...mensajes) {
   mensajes.forEach(mensaje => console.log(mensaje));
 }
 logear("Error", "Código 404", "Recurso no encontrado");
-c) Desestructuración avanzada:
+```
+#### Desestructuración avanzada:
 Extraer valores específicos de arrays u objetos y capturar el resto.
 
 Ejemplo:
 
-javascript
-
+```javascript
 const [primero, ...resto] = [1, 2, 3, 4];
 console.log(primero); // 1
 console.log(resto); // [2, 3, 4]
-
+```
 ## arrays
  JavaScript proporciona una gran cantidad de métodos para trabajar con arrays. Aquí te explico algunos de los más comunes:
 
