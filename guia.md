@@ -512,7 +512,7 @@ while (contador < 5) {
 }
 Salida:
 
-Copy
+
 1
 2
 4
@@ -1168,11 +1168,11 @@ Object.keys() es un método que devuelve un array con las claves (propiedades en
 
 Sintaxis:
 javascript
-Copy
+
 Object.keys(objeto);
 Ejemplo básico:
 javascript
-Copy
+
 const persona = {
   nombre: "Juan",
   edad: 30,
@@ -1185,14 +1185,14 @@ Usos comunes:
 Recorrer las propiedades de un objeto:
 
 javascript
-Copy
+
 claves.forEach(clave => {
   console.log(`${clave}: ${persona[clave]}`);
 });
 Verificar si un objeto tiene propiedades:
 
 javascript
-Copy
+
 if (Object.keys(persona).length === 0) {
   console.log("El objeto está vacío");
 }
@@ -1202,11 +1202,11 @@ Object.values() es un método que devuelve un array con los valores de las propi
 
 Sintaxis:
 javascript
-Copy
+
 Object.values(objeto);
 Ejemplo básico:
 javascript
-Copy
+
 const persona = {
   nombre: "Juan",
   edad: 30,
@@ -1219,14 +1219,14 @@ Usos comunes:
 Recorrer los valores de un objeto:
 
 javascript
-Copy
+
 valores.forEach(valor => {
   console.log(valor);
 });
 Sumar valores numéricos de un objeto:
 
 javascript
-Copy
+
 const total = Object.values(persona).reduce((acc, valor) => {
   if (typeof valor === "number") {
     return acc + valor;
@@ -1240,21 +1240,21 @@ El operador spread (...) permite "expandir" un iterable (como un array o un obje
 
 Sintaxis:
 javascript
-Copy
+
 ...iterable;
 Ejemplos:
 a) Con arrays:
 Copiar un array:
 
 javascript
-Copy
+
 const numeros = [1, 2, 3];
 const copiaNumeros = [...numeros];
 console.log(copiaNumeros); // Salida: [1, 2, 3]
 Concatenar arrays:
 
 javascript
-Copy
+
 const masNumeros = [4, 5, 6];
 const todosLosNumeros = [...numeros, ...masNumeros];
 console.log(todosLosNumeros); // Salida: [1, 2, 3, 4, 5, 6]
@@ -1262,14 +1262,14 @@ b) Con objetos:
 Copiar un objeto:
 
 javascript
-Copy
+
 const persona = { nombre: "Juan", edad: 30 };
 const copiaPersona = { ...persona };
 console.log(copiaPersona); // Salida: { nombre: "Juan", edad: 30 }
 Combinar objetos:
 
 javascript
-Copy
+
 const detalles = { profesion: "Desarrollador" };
 const personaCompleta = { ...persona, ...detalles };
 console.log(personaCompleta); // Salida: { nombre: "Juan", edad: 30, profesion: "Desarrollador" }
@@ -1277,7 +1277,7 @@ c) En llamadas a funciones:
 Pasar elementos de un array como argumentos:
 
 javascript
-Copy
+
 function sumar(a, b, c) {
   return a + b + c;
 }
@@ -1289,7 +1289,7 @@ El operador rest (...) permite representar un número indefinido de argumentos c
 
 Sintaxis:
 javascript
-Copy
+
 function nombreFuncion(...args) {
   // args es un array con todos los argumentos
 }
@@ -1298,7 +1298,7 @@ a) En funciones:
 Capturar todos los argumentos:
 
 javascript
-Copy
+
 function sumar(...numeros) {
   return numeros.reduce((acc, num) => acc + num, 0);
 }
@@ -1307,7 +1307,7 @@ b) En desestructuración:
 Capturar elementos restantes de un array:
 
 javascript
-Copy
+
 const [primero, segundo, ...resto] = [1, 2, 3, 4, 5];
 console.log(primero); // Salida: 1
 console.log(segundo); // Salida: 2
@@ -1315,7 +1315,7 @@ console.log(resto); // Salida: [3, 4, 5]
 Capturar propiedades restantes de un objeto:
 
 javascript
-Copy
+
 const persona = { nombre: "Juan", edad: 30, profesion: "Desarrollador" };
 const { nombre, ...detalles } = persona;
 console.log(nombre); // Salida: "Juan"
@@ -1325,7 +1325,7 @@ a) Object.keys() y Object.values() con objetos complejos:
 Puedes usar estos métodos con objetos anidados o que contienen funciones.
 
 javascript
-Copy
+
 const objetoComplejo = {
   nombre: "Juan",
   edad: 30,
@@ -1339,7 +1339,7 @@ b) Spread y rest con objetos dinámicos:
 Puedes combinar spread y rest para manipular objetos dinámicamente.
 
 javascript
-Copy
+
 const persona = { nombre: "Juan", edad: 30 };
 const nuevosDatos = { profesion: "Desarrollador", ciudad: "Madrid" };
 const personaActualizada = { ...persona, ...nuevosDatos };
@@ -1348,7 +1348,7 @@ c) Spread y rest en funciones variádicas:
 Las funciones variádicas son aquellas que aceptan un número variable de argumentos. El operador rest es perfecto para esto.
 
 javascript
-Copy
+
 function concatenar(...strings) {
   return strings.join(" ");
 }
@@ -1360,7 +1360,7 @@ Copiar, combinar o extraer propiedades de objetos y arrays.
 Ejemplo:
 
 javascript
-Copy
+
 const usuario = { nombre: "Ana", edad: 25 };
 const usuarioConEmail = { ...usuario, email: "ana@example.com" };
 console.log(usuarioConEmail);
@@ -1370,7 +1370,7 @@ Crear funciones que acepten un número variable de argumentos.
 Ejemplo:
 
 javascript
-Copy
+
 function logear(...mensajes) {
   mensajes.forEach(mensaje => console.log(mensaje));
 }
@@ -1381,7 +1381,7 @@ Extraer valores específicos de arrays u objetos y capturar el resto.
 Ejemplo:
 
 javascript
-Copy
+
 const [primero, ...resto] = [1, 2, 3, 4];
 console.log(primero); // 1
 console.log(resto); // [2, 3, 4]
@@ -1511,7 +1511,7 @@ Un array puede contener otros arrays, lo que permite crear estructuras multidime
 
 Ejemplo:
 ```javascript
-Copy
+
 let matriz = [
   [1, 2, 3],
   [4, 5, 6],
@@ -3033,3 +3033,1000 @@ change: Para cambios en elementos de formulario.
 keyup: Para detectar teclas presionadas.
 
 Objeto event: Proporciona información detallada sobre el evento.
+
+
+## setTimeout y setInterval
+### setTimeout
+¿Qué hace? Ejecuta una función después de un retraso especificado en milisegundos.
+
+Sintaxis:
+
+```javascript
+setTimeout(callback, delay, arg1, arg2, ...);
+```
+callback: La función que se ejecutará.
+
+delay: El tiempo de espera en milisegundos antes de ejecutar la función.
+
+arg1, arg2, ...: Argumentos opcionales que se pasan al callback.
+
+Ejemplo básico:
+
+```javascript
+setTimeout(() => {
+    console.log("Este mensaje se muestra después de 2 segundos");
+}, 2000);
+```
+### setInterval
+¿Qué hace? Ejecuta una función repetidamente, con un intervalo fijo entre cada ejecución.
+
+Sintaxis:
+
+```javascript
+setInterval(callback, interval, arg1, arg2, ...);
+```
+callback: La función que se ejecutará repetidamente.
+
+interval: El tiempo en milisegundos entre cada ejecución.
+
+arg1, arg2, ...: Argumentos opcionales que se pasan al callback.
+
+Ejemplo básico:
+
+```javascript
+setInterval(() => {
+    console.log("Este mensaje se muestra cada 3 segundos");
+}, 3000);
+```
+### Uso Avanzado de setTimeout y setInterval
+**Cancelar setTimeout y setInterval**
+
+**clearTimeout:** Cancela la ejecución de un setTimeout.
+
+```javascript
+const timeoutId = setTimeout(() => {
+    console.log("Este mensaje nunca se mostrará");
+}, 2000);
+
+clearTimeout(timeoutId); // Cancela el timeout
+```
+**clearInterval:** Detiene la ejecución repetida de un setInterval.
+
+```javascript
+
+const intervalId = setInterval(() => {
+    console.log("Este mensaje se muestra cada 1 segundo");
+}, 1000);
+
+setTimeout(() => {
+    clearInterval(intervalId); // Detiene el intervalo después de 5 segundos
+}, 5000);
+```
+### Anidar setTimeout para crear intervalos dinámicos
+En lugar de usar setInterval, puedes usar setTimeout de manera recursiva para crear intervalos dinámicos o controlar mejor el flujo de ejecución.
+
+```javascript
+
+function ejecutarConRetardo() {
+    console.log("Ejecutado con retardo");
+    setTimeout(ejecutarConRetardo, 1000); // Se llama a sí mismo después de 1 segundo
+}
+ejecutarConRetardo();
+```
+### Problemas Comunes con setInterval
+**Desbordamiento de llamadas:** Si el código dentro del setInterval tarda más en ejecutarse que el intervalo especificado, las llamadas se acumulan.
+
+**Solución:** Usar setTimeout recursivo para garantizar que la siguiente ejecución solo comience después de que la anterior haya terminado.
+
+**Falta de limpieza:** Si no se limpia un setInterval, puede seguir ejecutándose incluso cuando ya no es necesario, lo que lleva a fugas de memoria.
+
+**Solución:** Siempre usar clearInterval cuando el intervalo ya no sea necesario.
+
+### Aplicaciones en Programación Empresarial
+#### Ejecución Diferida
+Escenario: En una aplicación empresarial, es común retrasar la ejecución de ciertas tareas, como la validación de formularios o la carga de datos.
+
+```javascript
+
+let timeoutId;
+document.getElementById('inputField').addEventListener('input', () => {
+    clearTimeout(timeoutId); // Cancela el timeout anterior
+    timeoutId = setTimeout(() => {
+        console.log("Validando entrada...");
+        // Lógica de validación aquí
+    }, 500); // Espera 500 ms después de la última entrada
+});
+```
+#### Actualización Periódica de Datos
+Escenario: En aplicaciones que consumen APIs, es común actualizar datos periódicamente (por ejemplo, para mostrar información en tiempo real).
+
+```javascript
+
+let intervalId = setInterval(async () => {
+    try {
+        const response = await fetch('https://api.ejemplo.com/datos');
+        const data = await response.json();
+        console.log("Datos actualizados:", data);
+    } catch (error) {
+        console.error("Error al actualizar datos:", error);
+        clearInterval(intervalId); // Detiene el intervalo si hay un error
+    }
+}, 10000); // Actualiza cada 10 segundos
+```
+### Problemas Frecuentes para Programadores Junior
+#### Callback Hell con setTimeout
+Problema: Anidar múltiples setTimeout puede llevar a un código difícil de leer y mantener.
+
+```javascript
+
+setTimeout(() => {
+    console.log("Primera tarea");
+    setTimeout(() => {
+        console.log("Segunda tarea");
+        setTimeout(() => {
+            console.log("Tercera tarea");
+        }, 1000);
+    }, 1000);
+}, 1000);
+```
+Solución: Usar promesas o async/await para manejar la asincronía de manera más limpia.
+
+#### No Limpiar Intervarlos o Timeouts
+Problema: Si no se limpian los intervalos o timeouts, pueden seguir ejecutándose incluso cuando ya no son necesarios.
+
+```javascript
+
+const intervalId = setInterval(() => {
+    console.log("Ejecutando...");
+}, 1000);
+
+// Olvidar clearInterval(intervalId) puede llevar a fugas de memoria.
+```
+Solución: Siempre limpiar los intervalos y timeouts cuando ya no sean necesarios.
+
+#### Uso Excesivo de setInterval
+Problema: Usar setInterval para tareas que no requieren una ejecución estrictamente periódica puede llevar a un alto consumo de recursos.
+
+Solución: Evaluar si es necesario un intervalo o si se puede usar un enfoque más eficiente, como setTimeout recursivo.
+
+#### Buenas Prácticas
+**Evitar el uso excesivo de setInterval:** Prefiere setTimeout recursivo para tareas que no requieren una ejecución estrictamente periódica.
+
+**Limpiar intervalos y timeouts:** Siempre usa clearInterval y clearTimeout cuando ya no sean necesarios.
+
+**Manejar errores:** Asegúrate de manejar errores en tareas asincrónicas para evitar comportamientos inesperados.
+
+**Optimizar el rendimiento:** Evita ejecutar código costoso en intervalos cortos.
+
+
+## Conceptos Básicos de Promesas y async/await
+## Promesas (Promise)
+¿Qué es una promesa? Una promesa es un objeto que representa un valor que puede estar disponible ahora, en el futuro o nunca. Es una forma más limpia y poderosa de manejar operaciones asincrónicas en comparación con los callbacks.
+
+Estados de una promesa:
+
+- Pending (Pendiente): Estado inicial, la promesa no se ha cumplido ni rechazado.
+
+- Fulfilled (Cumplida): La operación se completó con éxito.
+
+- Rejected (Rechazada): La operación falló.
+
+Sintaxis básica:
+
+```javascript
+
+const promesa = new Promise((resolve, reject) => {
+    // Lógica asincrónica
+    if (éxito) {
+        resolve("Éxito"); // La promesa se cumple
+    } else {
+        reject("Error"); // La promesa se rechaza
+    }
+});
+
+promesa
+    .then((resultado) => {
+        console.log(resultado); // "Éxito"
+    })
+    .catch((error) => {
+        console.error(error); // "Error"
+    });
+```
+## async/await
+¿Qué es async/await? Es una sintaxis más moderna y legible para trabajar con promesas. Permite escribir código asincrónico de manera similar al código síncrono.
+
+Sintaxis básica:
+
+```javascript
+async function obtenerDatos() {
+    try {
+        const resultado = await promesa; // Espera a que la promesa se resuelva
+        console.log(resultado); // "Éxito"
+    } catch (error) {
+        console.error(error); // "Error"
+    }
+}
+obtenerDatos();
+```
+### Uso Avanzado de Promesas y async/await
+Encadenamiento de Promesas
+Las promesas se pueden encadenar para ejecutar operaciones asincrónicas en secuencia.
+
+```javascript
+function tarea1() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Tarea 1 completada"), 1000);
+    });
+}
+
+function tarea2() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve("Tarea 2 completada"), 1000);
+    });
+}
+
+tarea1()
+    .then((resultado1) => {
+        console.log(resultado1);
+        return tarea2();
+    })
+    .then((resultado2) => {
+        console.log(resultado2);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+### Manejo de Múltiples Promesas
+**Promise.all:** Ejecuta múltiples promesas en paralelo y espera a que todas se resuelvan.
+
+```javascript
+Promise.all([tarea1(), tarea2()])
+    .then((resultados) => {
+        console.log("Todas las tareas completadas:", resultados);
+    })
+    .catch((error) => {
+        console.error("Al menos una tarea falló:", error);
+    });
+```
+**Promise.race:** Devuelve la primera promesa que se resuelva (ya sea cumplida o rechazada).
+
+```javascript
+Promise.race([tarea1(), tarea2()])
+    .then((resultado) => {
+        console.log("La primera tarea en completarse:", resultado);
+    })
+    .catch((error) => {
+        console.error("La primera tarea en fallar:", error);
+    });
+```
+### async/await con Bucles
+Puedes usar async/await dentro de bucles para manejar operaciones asincrónicas en secuencia.
+
+```javascript
+async function ejecutarTareas() {
+    const tareas = [tarea1, tarea2];
+    for (const tarea of tareas) {
+        const resultado = await tarea();
+        console.log(resultado);
+    }
+}
+ejecutarTareas();
+```
+### Aplicaciones en Programación Empresarial
+#### Consumo de APIs
+Escenario: En aplicaciones empresariales, es común consumir APIs para obtener datos.
+
+```javascript
+async function obtenerDatosDeAPI() {
+    try {
+        const response = await fetch('https://api.ejemplo.com/datos');
+        const data = await response.json();
+        console.log("Datos obtenidos:", data);
+    } catch (error) {
+        console.error("Error al obtener datos:", error);
+    }
+}
+obtenerDatosDeAPI();
+```
+
+#### Validación de Datos en Formularios
+Escenario: Validar datos de un formulario antes de enviarlos al servidor.
+
+```javascript
+async function validarYEnviarFormulario(datos) {
+    try {
+        await validarDatos(datos); // Validación asincrónica
+        const respuesta = await enviarDatos(datos); // Envío asincrónico
+        console.log("Formulario enviado con éxito:", respuesta);
+    } catch (error) {
+        console.error("Error en el formulario:", error);
+    }
+}
+```
+#### Procesamiento en Paralelo
+Escenario: Procesar múltiples tareas en paralelo para mejorar el rendimiento.
+
+```javascript
+async function procesarTareas() {
+    try {
+        const [resultado1, resultado2] = await Promise.all([tarea1(), tarea2()]);
+        console.log("Resultados:", resultado1, resultado2);
+    } catch (error) {
+        console.error("Error en el procesamiento:", error);
+    }
+}
+procesarTareas();
+```
+#### Problemas Frecuentes para Programadores Junior
+#### No Manejar Errores Adecuadamente
+Problema: Olvidar el catch o try...catch puede llevar a errores no manejados.
+
+```javascript
+promesa
+    .then((resultado) => {
+        console.log(resultado);
+    });
+    // Falta .catch para manejar errores
+```
+Solución: Siempre incluir un bloque catch o try...catch para manejar errores.
+
+#### Uso Incorrecto de await
+Problema: Usar await en lugares innecesarios puede bloquear la ejecución del código.
+
+```javascript
+
+async function ejecutar() {
+    const resultado1 = await tarea1(); // Espera aquí
+    const resultado2 = await tarea2(); // Espera aquí
+    console.log(resultado1, resultado2);
+}
+```
+Solución: Usar Promise.all para ejecutar tareas en paralelo cuando sea posible.
+
+#### Callback Hell con Promesas
+Problema: Anidar múltiples promesas puede llevar a un código difícil de leer.
+
+```javascript
+
+tarea1()
+    .then((resultado1) => {
+        tarea2(resultado1)
+            .then((resultado2) => {
+                tarea3(resultado2)
+                    .then((resultado3) => {
+                        console.log(resultado3);
+                    });
+            });
+    });
+```
+Solución: Usar async/await para escribir código más limpio y legible.
+
+#### Buenas Prácticas
+Manejar errores siempre: Usa catch o try...catch para evitar errores no manejados.
+
+Evitar el anidamiento excesivo: Usa async/await para mejorar la legibilidad del código.
+
+Usar Promise.all para tareas paralelas: Mejora el rendimiento ejecutando tareas en paralelo cuando sea posible.
+
+Evitar el uso innecesario de await: No uses await si no es necesario, ya que puede bloquear la ejecución del código.
+
+
+## Conceptos Básicos de AJAX y Fetch API
+### ¿Qué es AJAX?
+**AJAX (Asynchronous JavaScript and XML):** 
+
+Es una técnica que permite realizar solicitudes HTTP asincrónicas desde el navegador sin necesidad de recargar la página. Aunque el nombre incluye "XML", hoy en día se usa principalmente JSON.
+
+**¿Qué es Fetch API?**
+
+**Fetch API:** Es una interfaz moderna y nativa de JavaScript para realizar solicitudes HTTP. Es más poderosa y flexible que el antiguo XMLHttpRequest.
+
+### Uso Básico de Fetch API
+Sintaxis Básica de Fetch
+fetch(): Realiza una solicitud HTTP y devuelve una promesa que se resuelve en la respuesta.
+
+```javascript
+fetch('https://api.ejemplo.com/datos')
+    .then(response => response.json()) // Convierte la respuesta a JSON
+    .then(data => console.log(data))  // Muestra los datos
+    .catch(error => console.error('Error:', error)); // Maneja errores
+```
+#### Métodos HTTP Comunes
+GET: Obtener datos.
+
+```javascript
+
+fetch('https://api.ejemplo.com/datos')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+```
+POST: Enviar datos.
+
+```javascript
+
+fetch('https://api.ejemplo.com/datos', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ clave: 'valor' }), // Datos a enviar
+})
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+```
+PUT y DELETE: Actualizar y eliminar datos.
+
+```javascript
+
+// PUT
+fetch('https://api.ejemplo.com/datos/1', {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ clave: 'nuevo valor' }),
+});
+
+// DELETE
+fetch('https://api.ejemplo.com/datos/1', {
+    method: 'DELETE',
+});
+```
+### Uso Avanzado de Fetch API
+#### Manejo de Headers
+Puedes agregar cabeceras personalizadas a tus solicitudes.
+
+```javascript
+fetch('https://api.ejemplo.com/datos', {
+    headers: {
+        'Authorization': 'Bearer token',
+        'Content-Type': 'application/json',
+    },
+});
+```
+#### Manejo de Errores
+
+ **Verificar el estado de la respuesta:**
+
+ No todas las respuestas con estado HTTP 200-299 son válidas. Es importante verificar response.ok.
+
+```javascript
+fetch('https://api.ejemplo.com/datos')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la solicitud');
+        }
+        return response.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+```
+#### Uso de async/await con Fetch
+async/await hace que el código sea más legible y fácil de manejar.
+
+```javascript
+async function obtenerDatos() {
+    try {
+        const response = await fetch('https://api.ejemplo.com/datos');
+        if (!response.ok) {
+            throw new Error('Error en la solicitud');
+        }
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+obtenerDatos();
+```
+#### Cancelación de Solicitudes
+AbortController: Permite cancelar una solicitud fetch.
+
+```javascript
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('https://api.ejemplo.com/datos', { signal })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => {
+        if (error.name === 'AbortError') {
+            console.log('Solicitud cancelada');
+        } else {
+            console.error('Error:', error);
+        }
+    });
+
+// Cancelar la solicitud después de 1 segundo
+setTimeout(() => controller.abort(), 1000);
+```
+### Aplicaciones en Programación Empresarial
+#### Consumo de APIs Externas
+Escenario: Obtener datos de una API externa para mostrar en una aplicación.
+
+```javascript
+async function obtenerDatosDeAPI() {
+    try {
+        const response = await fetch('https://api.ejemplo.com/datos');
+        if (!response.ok) {
+            throw new Error('Error en la solicitud');
+        }
+        const data = await response.json();
+        console.log("Datos obtenidos:", data);
+    } catch (error) {
+        console.error("Error al obtener datos:", error);
+    }
+}
+obtenerDatosDeAPI();
+```
+#### Autenticación y Autorización
+Escenario: Enviar un token de autenticación en las cabeceras.
+
+```javascript
+async function obtenerDatosProtegidos() {
+    try {
+        const token = 'tu_token';
+        const response = await fetch('https://api.ejemplo.com/datos-protegidos', {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Error en la solicitud');
+        }
+        const data = await response.json();
+        console.log("Datos protegidos:", data);
+    } catch (error) {
+        console.error("Error al obtener datos protegidos:", error);
+    }
+}
+obtenerDatosProtegidos();
+```
+#### Subida de Archivos
+Escenario: Subir un archivo a un servidor.
+
+```javascript
+async function subirArchivo(archivo) {
+    const formData = new FormData();
+    formData.append('archivo', archivo);
+
+    try {
+        const response = await fetch('https://api.ejemplo.com/subir', {
+            method: 'POST',
+            body: formData,
+        });
+        if (!response.ok) {
+            throw new Error('Error en la subida');
+        }
+        const data = await response.json();
+        console.log("Archivo subido:", data);
+    } catch (error) {
+        console.error("Error al subir el archivo:", error);
+    }
+}
+```
+### Problemas Frecuentes para Programadores Junior
+#### No Verificar el Estado de la Respuesta
+Problema: Asumir que todas las respuestas son válidas sin verificar response.ok.
+
+```javascript
+fetch('https://api.ejemplo.com/datos')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+```    
+Solución: Siempre verificar response.ok antes de procesar la respuesta.
+
+#### No Manejar Errores de Red
+Problema: Ignorar errores de red o respuestas no válidas.
+
+```javascript
+fetch('https://api.ejemplo.com/datos')
+    .then(response => response.json())
+    .then(data => console.log(data));
+```
+Solución: Usar try...catch o .catch() para manejar errores.
+
+#### Uso Incorrecto de async/await
+Problema: Usar await en lugares innecesarios, bloqueando la ejecución del código.
+
+```javascript
+async function obtenerDatos() {
+    const response = await fetch('https://api.ejemplo.com/datos'); // Espera aquí
+    const data = await response.json(); // Espera aquí
+    console.log(data);
+}
+```
+Solución: Usar Promise.all para ejecutar tareas en paralelo cuando sea posible.
+
+#### Buenas Prácticas
+- Verificar el estado de la respuesta: Siempre verifica response.ok antes de procesar la respuesta.
+
+- Manejar errores adecuadamente: Usa try...catch o .catch() para manejar errores de red o respuestas no válidas.
+
+- Usar async/await para mejorar la legibilidad: Escribe código más limpio y fácil de mantener.
+
+- Optimizar el rendimiento: Usa AbortController para cancelar solicitudes innecesarias.
+
+## Conceptos Básicos de Almacenamiento Local
+### ¿Qué es localStorage?
+**localStorage:** Es un mecanismo de almacenamiento persistente en el navegador. Los datos almacenados no tienen fecha de expiración y permanecen incluso después de cerrar el navegador.
+
+### ¿Qué es sessionStorage?
+**sessionStorage:** Es un mecanismo de almacenamiento temporal en el navegador. Los datos almacenados se eliminan cuando se cierra la pestaña o el navegador.
+
+### Uso Básico de localStorage y sessionStorage
+Sintaxis Básica
+Guardar datos:
+
+```javascript
+localStorage.setItem('clave', 'valor'); // Almacena en localStorage
+sessionStorage.setItem('clave', 'valor'); // Almacena en sessionStorage
+```
+Obtener datos:
+
+```javascript
+const valorLocal = localStorage.getItem('clave'); // Obtiene de localStorage
+const valorSession = sessionStorage.getItem('clave'); // Obtiene de sessionStorage
+```
+Eliminar datos:
+
+```javascript
+localStorage.removeItem('clave'); // Elimina de localStorage
+sessionStorage.removeItem('clave'); // Elimina de sessionStorage
+```
+Limpiar todo el almacenamiento:
+
+```javascript
+localStorage.clear(); // Limpia todo el localStorage
+sessionStorage.clear(); // Limpia todo el sessionStorage
+```
+Ejemplo Básico
+```javascript
+// Guardar datos
+localStorage.setItem('nombre', 'Juan');
+sessionStorage.setItem('sesion', 'activa');
+
+// Obtener datos
+console.log(localStorage.getItem('nombre')); // "Juan"
+console.log(sessionStorage.getItem('sesion')); // "activa"
+
+// Eliminar datos
+localStorage.removeItem('nombre');
+sessionStorage.removeItem('sesion');
+
+// Limpiar todo
+localStorage.clear();
+sessionStorage.clear();
+```
+### Uso Avanzado de localStorage y sessionStorage
+#### Almacenamiento de Objetos
+Problema: localStorage y sessionStorage solo pueden almacenar cadenas de texto (strings).
+
+Solución: Usar JSON.stringify para convertir objetos a cadenas y JSON.parse para convertirlos de vuelta a objetos.
+
+```javascript
+const usuario = { nombre: 'Juan', edad: 30 };
+
+// Guardar objeto
+localStorage.setItem('usuario', JSON.stringify(usuario));
+
+// Obtener objeto
+const usuarioGuardado = JSON.parse(localStorage.getItem('usuario'));
+console.log(usuarioGuardado); // { nombre: 'Juan', edad: 30 }
+```
+#### Eventos de Almacenamiento
+Evento storage: Se dispara cuando se modifica el localStorage o sessionStorage desde otra pestaña o ventana.
+
+```javascript
+window.addEventListener('storage', (event) => {
+    console.log('Cambio en el almacenamiento:', event.key, event.newValue);
+});
+```
+#### Limitaciones de Almacenamiento
+Tamaño máximo: Aproximadamente 5 MB por dominio (depende del navegador).
+
+Problema: Almacenar demasiados datos puede afectar el rendimiento del navegador.
+
+Solución: Usar el almacenamiento local solo para datos pequeños y necesarios.
+
+### Aplicaciones en Programación Empresarial
+#### Guardar Preferencias del Usuario
+Escenario: Guardar preferencias como el tema (claro/oscuro) o el idioma seleccionado.
+
+```javascript
+// Guardar preferencia
+localStorage.setItem('tema', 'oscuro');
+
+// Obtener preferencia
+const tema = localStorage.getItem('tema') || 'claro'; // Valor por defecto
+console.log("Tema seleccionado:", tema);
+```
+#### Mantener el Estado de la Aplicación
+Escenario: Guardar el estado de una aplicación (por ejemplo, un carrito de compras) para que persista incluso después de recargar la página.
+
+```javascript
+const carrito = [{ id: 1, nombre: 'Producto 1', cantidad: 2 }];
+
+// Guardar carrito
+localStorage.setItem('carrito', JSON.stringify(carrito));
+
+// Obtener carrito
+const carritoGuardado = JSON.parse(localStorage.getItem('carrito')) || [];
+console.log("Carrito:", carritoGuardado);
+```
+#### Autenticación y Tokens
+Escenario: Guardar un token de autenticación para mantener la sesión del usuario.
+
+```javascript
+// Guardar token
+localStorage.setItem('token', 'tu_token');
+
+// Obtener token
+const token = localStorage.getItem('token');
+if (token) {
+    console.log("Usuario autenticado");
+} else {
+    console.log("Usuario no autenticado");
+}
+```
+### Problemas Frecuentes para Programadores Junior
+#### No Manejar Datos No Existentes
+Problema: Intentar acceder a datos que no existen puede llevar a errores.
+
+```javascript
+const datos = localStorage.getItem('datos');
+console.log(datos.nombre); // Error si datos es null
+```
+Solución: Verificar si los datos existen antes de usarlos.
+
+```javascript
+const datos = JSON.parse(localStorage.getItem('datos')) || {};
+console.log(datos.nombre); // undefined (pero no genera error)
+```
+#### Almacenar Datos Sensibles
+Problema: Almacenar información sensible (como contraseñas o tokens sin cifrar) en localStorage o sessionStorage puede ser inseguro.
+
+Solución: Evitar almacenar datos sensibles en el almacenamiento local. Usar cookies seguras o almacenamiento en el servidor.
+
+#### No Limpiar Datos Obsoletos
+Problema: Acumular datos obsoletos en el almacenamiento local puede llevar a un uso excesivo de memoria.
+
+Solución: Limpiar regularmente los datos que ya no son necesarios.
+
+```javascript
+localStorage.removeItem('datos_obsoletos');
+```
+#### Uso Excesivo de Almacenamiento Local
+Problema: Almacenar grandes cantidades de datos puede afectar el rendimiento del navegador.
+
+Solución: Usar el almacenamiento local solo para datos pequeños y necesarios. Para grandes volúmenes de datos, considerar el uso de bases de datos en el servidor.
+
+#### Buenas Prácticas
+- Usar JSON para objetos: Convertir objetos a cadenas con JSON.stringify y viceversa con JSON.parse.
+
+- Verificar datos existentes: Siempre verificar si los datos existen antes de usarlos.
+
+- Evitar datos sensibles: No almacenar información sensible en el almacenamiento local.
+
+- Limpiar datos obsoletos: Eliminar regularmente los datos que ya no son necesarios.
+
+- Optimizar el uso: Usar el almacenamiento local solo para datos pequeños y necesarios.
+
+
+## Conceptos Básicos de Manejo de Errores
+### ¿Por qué es importante manejar errores?
+El manejo de errores es crucial para evitar que una aplicación falle de manera inesperada y para proporcionar una experiencia de usuario más robusta y confiable.
+
+En entornos empresariales, un manejo adecuado de errores puede prevenir pérdidas de datos, mejorar la depuración y facilitar el mantenimiento del código.
+
+**Errores en JavaScript**
+
+Errores comunes:
+
+- Errores de sintaxis (SyntaxError).
+
+- Errores de tipo (TypeError).
+
+- Errores de referencia (ReferenceError).
+
+- Errores personalizados (throw new Error()).
+
+### Uso Básico de try...catch
+Sintaxis de try...catch
+- try: Bloque de código que puede generar un error.
+
+- catch: Bloque que se ejecuta si ocurre un error en el try.
+
+- finally: Bloque opcional que se ejecuta siempre, independientemente de si hubo un error o no.
+
+```javascript
+try {
+    // Código que puede generar un error
+    const resultado = operacionRiesgosa();
+    console.log(resultado);
+} catch (error) {
+    // Manejo del error
+    console.error("Ocurrió un error:", error.message);
+} finally {
+    // Código que siempre se ejecuta
+    console.log("Finalizado");
+}
+```
+Ejemplo Básico
+```javascript
+function dividir(a, b) {
+    if (b === 0) {
+        throw new Error("División por cero no permitida");
+    }
+    return a / b;
+}
+
+try {
+    const resultado = dividir(10, 0);
+    console.log(resultado);
+} catch (error) {
+    console.error("Error:", error.message); // "División por cero no permitida"
+}
+```
+### Uso Avanzado de try...catch y throw new Error()
+#### Tipos de Errores Personalizados
+Puedes crear errores personalizados para manejar situaciones específicas.
+
+```javascript
+class ErrorPersonalizado extends Error {
+    constructor(mensaje) {
+        super(mensaje);
+        this.name = "ErrorPersonalizado";
+    }
+}
+
+try {
+    throw new ErrorPersonalizado("Este es un error personalizado");
+} catch (error) {
+    console.error(error.name); // "ErrorPersonalizado"
+    console.error(error.message); // "Este es un error personalizado"
+}
+```
+#### Manejo de Errores en Funciones Asincrónicas
+Promesas: Usar .catch() para manejar errores.
+
+```javascript
+function operacionAsincrona() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(new Error("Error en operación asincrónica"));
+        }, 1000);
+    });
+}
+
+operacionAsincrona()
+    .then(resultado => console.log(resultado))
+    .catch(error => console.error(error.message)); // "Error en operación asincrónica"
+```
+async/await: Usar try...catch para manejar errores.
+
+```javascript
+async function ejecutarOperacion() {
+    try {
+        const resultado = await operacionAsincrona();
+        console.log(resultado);
+    } catch (error) {
+        console.error(error.message); // "Error en operación asincrónica"
+    }
+}
+ejecutarOperacion();
+```
+#### Manejo de Errores en Bucles
+Puedes manejar errores dentro de bucles para evitar que un error detenga toda la ejecución.
+
+```javascript
+const tareas = [tarea1, tarea2, tarea3];
+
+for (const tarea of tareas) {
+    try {
+        tarea();
+    } catch (error) {
+        console.error("Error en tarea:", error.message);
+    }
+}
+```
+#### Aplicaciones en Programación Empresarial
+**Validación de Datos**
+
+Escenario: Validar datos de entrada antes de procesarlos.
+
+```javascript
+function validarDatos(datos) {
+    if (!datos.nombre) {
+        throw new Error("El nombre es requerido");
+    }
+    if (!datos.edad || datos.edad < 18) {
+        throw new Error("La edad debe ser mayor o igual a 18");
+    }
+}
+
+try {
+    validarDatos({ nombre: "", edad: 15 });
+} catch (error) {
+    console.error("Error de validación:", error.message);
+}
+```
+#### Consumo de APIs
+Escenario: Manejar errores al consumir una API.
+
+```javascript
+async function obtenerDatosDeAPI() {
+    try {
+        const response = await fetch('https://api.ejemplo.com/datos');
+        if (!response.ok) {
+            throw new Error("Error al obtener datos");
+        }
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Error en la API:", error.message);
+    }
+}
+obtenerDatosDeAPI();
+```
+#### Procesamiento de Archivos
+Escenario: Manejar errores al leer o procesar archivos.
+
+```javascript
+async function procesarArchivo(archivo) {
+    try {
+        const contenido = await leerArchivo(archivo);
+        console.log(contenido);
+    } catch (error) {
+        console.error("Error al procesar el archivo:", error.message);
+    }
+}
+procesarArchivo('archivo.txt');
+```
+### Problemas Frecuentes para Programadores Junior
+#### No Manejar Errores Adecuadamente
+Problema: Ignorar errores puede llevar a comportamientos inesperados.
+
+```javascript
+function operacionRiesgosa() {
+    throw new Error("Algo salió mal");
+}
+
+operacionRiesgosa(); // Error no manejado
+```
+Solución: Siempre usar try...catch o .catch() para manejar errores.
+
+#### Errores Silenciosos
+Problema: No registrar o notificar errores dificulta la depuración.
+
+```javascript
+try {
+    operacionRiesgosa();
+} catch (error) {
+    // No se registra el error
+}
+```
+Solución: Registrar errores en la consola o enviarlos a un servicio de monitoreo.
+
+#### Uso Incorrecto de throw
+Problema: Lanzar errores sin un mensaje claro dificulta la identificación del problema.
+
+```javascript
+throw "Algo salió mal"; // Error sin detalles
+```
+Solución: Usar throw new Error("Mensaje descriptivo") para proporcionar detalles útiles.
+
+#### Buenas Prácticas
+- Manejar todos los errores: Usa try...catch o .catch() para evitar errores no manejados.
+
+- Registrar errores: Siempre registra errores en la consola o en un servicio de monitoreo.
+
+- Proporcionar mensajes claros: Usa mensajes descriptivos en throw new Error().
+
+- Evitar errores silenciosos: No ignores errores, incluso si parecen menores.
+
+- Usar errores personalizados: Crea errores personalizados para manejar situaciones específicas.
