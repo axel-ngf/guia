@@ -1699,3 +1699,1337 @@ saludar("Ana"); // "Hola, Ana"
 
 ||: Útil para asignar valores por defecto cuando una variable es falsy.
 
+
+
+##  Objetos y Clases (class)
+## Objetos en JavaScript
+En JavaScript, los objetos son colecciones de pares clave-valor, donde las claves son strings (o símbolos) y los valores pueden ser cualquier tipo de dato, incluyendo funciones (métodos).
+
+Ejemplo básico:
+```javascript
+
+const persona = {
+  nombre: "Juan",
+  edad: 30,
+  saludar() {
+    console.log(`Hola, mi nombre es ${this.nombre}`);
+  }
+};
+
+persona.saludar(); // Salida: "Hola, mi nombre es Juan"
+```
+### Acceso a propiedades
+Puedes acceder a las propiedades de un objeto de dos maneras:
+
+Notación de punto:
+
+```javascript
+console.log(persona.nombre); // "Juan"
+persona.saludar(); // "Hola, soy Juan"
+```
+Notación de corchetes:
+
+```javascript
+console.log(persona["edad"]); // 30
+let propiedad = "nombre";
+console.log(persona[propiedad]); // "Juan"
+```
+Modificación y adición de propiedades
+Puedes modificar o agregar propiedades dinámicamente:
+
+```javascript
+persona.edad = 31; // Modificar
+persona.profesion = "Desarrollador"; // Agregar
+console.log(persona); // { nombre: "Juan", edad: 31, saludar: [Function], profesion: "Desarrollador" }
+```
+### Eliminación de propiedades
+Usa delete para eliminar una propiedad:
+
+```javascript
+delete persona.edad;
+console.log(persona.edad); // undefined
+```
+### Métodos en objetos
+Los métodos son funciones que están asociadas a un objeto. Puedes definirlos directamente en el objeto:
+
+```javascript
+let coche = {
+    marca: "Toyota",
+    arrancar: function() {
+        console.log("El coche está arrancando...");
+    }
+};
+coche.arrancar(); // "El coche está arrancando..."
+```
+### this en objetos
+La palabra clave this hace referencia al objeto que está ejecutando el método. Es útil para acceder a las propiedades del objeto dentro de un método:
+
+```javascript
+let persona = {
+    nombre: "Ana",
+    saludar: function() {
+        console.log("Hola, soy " + this.nombre);
+    }
+};
+persona.saludar(); // "Hola, soy Ana"
+```
+### Objetos anidados
+Los objetos pueden contener otros objetos:
+
+```javascript
+let empresa = {
+    nombre: "Tech Corp",
+    direccion: {
+        calle: "Calle Falsa 123",
+        ciudad: "Madrid"
+    }
+};
+console.log(empresa.direccion.ciudad); // "Madrid"
+```
+### Recorrer propiedades de un objeto
+Puedes usar un bucle for...in para recorrer las propiedades de un objeto:
+
+```javascript
+for (let clave in persona) {
+    console.log(clave + ": " + persona[clave]);
+}
+```
+### Métodos estáticos de Object
+JavaScript proporciona métodos útiles para trabajar con objetos:
+
+**Object.keys(obj):** Devuelve un array con las claves del objeto.
+
+```javascript
+console.log(Object.keys(persona)); // ["nombre", "edad", "saludar"]
+Object.values(obj): Devuelve un array con los valores del objeto.
+```
+```javascript
+console.log(Object.values(persona)); // ["Juan", 30, [Function]]
+Object.entries(obj): Devuelve un array de arrays, donde cada subarray es un par clave-valor.
+```
+```javascript
+console.log(Object.entries(persona)); // [["nombre", "Juan"], ["edad", 30], ["saludar", [Function]]]
+```
+### Prototipos y herencia
+En JavaScript, los objetos pueden heredar propiedades y métodos de otros objetos a través de la cadena de prototipos (prototype chain). Esto es la base de la programación orientada a objetos en JavaScript.
+
+Ejemplo:
+
+```javascript
+let animal = {
+    sonido: function() {
+        console.log("Haciendo sonidos...");
+    }
+};
+
+let perro = Object.create(animal);
+perro.ladrar = function() {
+    console.log("Guau guau!");
+};
+
+perro.sonido(); // "Haciendo sonidos..."
+perro.ladrar(); // "Guau guau!"
+```
+### Clases (ES6)
+Las clases en JavaScript son una forma más moderna y clara de trabajar con objetos y herencia. Son una "sintaxis azucarada" sobre los prototipos.
+
+Ejemplo:
+
+```javascript
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    saludar() {
+        console.log("Hola, soy " + this.nombre);
+    }
+}
+
+let juan = new Persona("Juan", 30);
+juan.saludar(); // "Hola, soy Juan"
+```
+### Getters y Setters
+Los getters y setters permiten definir cómo se accede y modifica una propiedad:
+
+```javascript
+let rectangulo = {
+    ancho: 10,
+    alto: 5,
+    get area() {
+        return this.ancho * this.alto;
+    },
+    set nuevoAncho(valor) {
+        this.ancho = valor;
+    }
+};
+
+console.log(rectangulo.area); // 50
+rectangulo.nuevoAncho = 20;
+console.log(rectangulo.area); // 100
+```
+### Objetos inmutables
+Puedes crear objetos inmutables usando Object.freeze():
+
+```javascript
+let objeto = { nombre: "Juan" };
+Object.freeze(objeto);
+objeto.nombre = "Ana"; // No tendrá efecto
+console.log(objeto.nombre); // "Juan"
+```
+### Desestructuración de objetos
+La desestructuración permite extraer propiedades de un objeto en variables:
+
+```javascript
+let persona = { nombre: "Carlos", edad: 25 };
+let { nombre, edad } = persona;
+console.log(nombre); // "Carlos"
+console.log(edad); // 25
+```
+### Métodos avanzados
+**Object.assign():** Copia propiedades de un objeto a otro.
+
+```javascript
+let destino = { a: 1 };
+let origen = { b: 2 };
+Object.assign(destino, origen);
+console.log(destino); // { a: 1, b: 2 }
+```
+**Object.defineProperty():** Define una nueva propiedad con características específicas (como si es enumerable, configurable, etc.).
+
+```javascript
+let obj = {};
+Object.defineProperty(obj, "propiedad", {
+    value: 42,
+    writable: false
+});
+console.log(obj.propiedad); // 42
+```
+obj.propiedad = 100; // No tendrá efecto
+
+### Symbols como claves
+Los símbolos son un tipo de dato único que se puede usar como clave en objetos:
+
+```javascript
+let id = Symbol("id");
+let usuario = {
+    [id]: 123,
+    nombre: "Pedro"
+};
+console.log(usuario[id]); // 123
+```
+### Proxies
+Los proxies permiten interceptar y redefinir operaciones fundamentales en objetos:
+
+```javascript
+let objetivo = { nombre: "Juan" };
+let manejador = {
+    get: function(objeto, propiedad) {
+        return propiedad in objeto ? objeto[propiedad] : "No existe";
+    }
+};
+let proxy = new Proxy(objetivo, manejador);
+console.log(proxy.nombre); // "Juan"
+console.log(proxy.edad); // "No existe"
+```
+### JSON y objetos
+JavaScript permite convertir objetos a JSON y viceversa:
+
+```javascript
+let objeto = { nombre: "Juan", edad: 30 };
+let json = JSON.stringify(objeto); // Convertir a JSON
+console.log(json); // {"nombre":"Juan","edad":30}
+
+let nuevoObjeto = JSON.parse(json); // Convertir de JSON a objeto
+console.log(nuevoObjeto); // { nombre: "Juan", edad: 30 }
+```
+### Patrones de diseño con objetos
+Factory Pattern: Crear objetos sin usar new.
+
+Singleton Pattern: Garantizar una única instancia de un objeto.
+
+Module Pattern: Encapsular funcionalidades en un objeto.
+
+Ejemplo de Singleton:
+
+```javascript
+let Singleton = (function() {
+    let instancia;
+
+    function crearInstancia() {
+        return { nombre: "Instancia única" };
+    }
+
+    return {
+        obtenerInstancia: function() {
+            if (!instancia) {
+                instancia = crearInstancia();
+            }
+            return instancia;
+        }
+    };
+})();
+
+let instancia1 = Singleton.obtenerInstancia();
+let instancia2 = Singleton.obtenerInstancia();
+console.log(instancia1 === instancia2); // true
+```
+### Buenas prácticas
+Usa const para objetos que no cambian.
+
+Evita modificar objetos directamente; prefiere la inmutabilidad.
+
+Usa clases para estructuras complejas.
+
+Aprovecha la desestructuración para mejorar la legibilidad.
+
+
+
+## Clases en JavaScript
+Las clases son una forma de crear objetos con una estructura y comportamiento definidos. Introducidas en ES6, las clases son una sintaxis más clara y orientada a objetos.
+
+Sintaxis básica:
+```javascript
+class Persona {
+  constructor(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+
+  saludar() {
+    console.log(`Hola, mi nombre es ${this.nombre}`);
+  }
+}
+
+const juan = new Persona("Juan", 30);
+juan.saludar(); // Salida: "Hola, mi nombre es Juan"
+```
+constructor: Es un método especial que se ejecuta cuando se crea una instancia de la clase. Se usa para inicializar propiedades.
+
+Métodos: Funciones definidas dentro de la clase.
+
+### Getters y Setters
+Los getters y setters son métodos especiales que permiten controlar el acceso a las propiedades de un objeto.
+
+Ejemplo:
+```javascript
+
+class Persona {
+  constructor(nombre, edad) {
+    this._nombre = nombre;
+    this._edad = edad;
+  }
+
+  // Getter para nombre
+  get nombre() {
+    return this._nombre.toUpperCase();
+  }
+
+  // Setter para nombre
+  set nombre(nuevoNombre) {
+    this._nombre = nuevoNombre.trim();
+  }
+}
+
+const juan = new Persona("Juan", 30);
+console.log(juan.nombre); // Salida: "JUAN" (usa el getter)
+juan.nombre = "  Ana  "; // Usa el setter
+console.log(juan.nombre); // Salida: "ANA"
+```
+Uso avanzado: Puedes usar getters y setters para validar datos, formatear valores o realizar acciones adicionales cuando se accede o modifica una propiedad.
+
+### Propiedades y métodos computados
+Puedes definir propiedades y métodos cuyos nombres se calculan dinámicamente.
+
+Ejemplo:
+```javascript
+const metodo = "saludar";
+
+class Persona {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+
+  [metodo]() {
+    console.log(`Hola, mi nombre es ${this.nombre}`);
+  }
+}
+
+const juan = new Persona("Juan");
+juan.saludar(); // Salida: "Hola, mi nombre es Juan"
+```
+Uso avanzado: Útil para crear métodos o propiedades dinámicos basados en condiciones o configuraciones.
+
+### Mixins
+Los mixins son una forma de agregar funcionalidades a una clase sin usar herencia.
+
+Ejemplo:
+```javascript
+const SaludarMixin = {
+  saludar() {
+    console.log(`Hola, mi nombre es ${this.nombre}`);
+  }
+};
+
+class Persona {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+}
+
+Object.assign(Persona.prototype, SaludarMixin);
+
+const juan = new Persona("Juan");
+juan.saludar(); // Salida: "Hola, mi nombre es Juan"
+```
+Uso avanzado: Permite reutilizar código en múltiples clases sin crear una jerarquía compleja.
+
+
+
+## Herencia y Polimorfismo (extends, super)
+### Herencia
+La herencia permite crear una clase basada en otra clase existente. La clase hija hereda propiedades y métodos de la clase padre.
+
+Ejemplo:
+```javascript
+
+class Animal {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+
+  hacerSonido() {
+    console.log("Sonido genérico");
+  }
+}
+
+class Perro extends Animal {
+  constructor(nombre, raza) {
+    super(nombre); // Llama al constructor de la clase padre
+    this.raza = raza;
+  }
+
+  hacerSonido() {
+    console.log("Guau guau");
+  }
+}
+
+const miPerro = new Perro("Rex", "Labrador");
+miPerro.hacerSonido(); // Salida: "Guau guau"
+```
+extends: Indica que una clase hereda de otra.
+
+super: Llama al constructor o métodos de la clase padre.
+
+### Polimorfismo
+El polimorfismo permite que una clase hija sobrescriba un método de la clase padre para proporcionar una implementación específica.
+
+Ejemplo:
+```javascript
+
+class Gato extends Animal {
+  hacerSonido() {
+    console.log("Miau miau");
+  }
+}
+
+const miGato = new Gato("Mimi");
+miGato.hacerSonido(); // Salida: "Miau miau"
+```
+### Llamadas a super en métodos
+Puedes usar super para llamar a métodos de la clase padre desde la clase hija.
+
+Ejemplo:
+```javascript
+class Animal {
+  hacerSonido() {
+    console.log("Sonido genérico");
+  }
+}
+
+class Perro extends Animal {
+  hacerSonido() {
+    super.hacerSonido(); // Llama al método de la clase padre
+    console.log("Guau guau");
+  }
+}
+
+const miPerro = new Perro();
+miPerro.hacerSonido();
+// Salida:
+// "Sonido genérico"
+// "Guau guau"
+```
+Uso avanzado: Útil para extender el comportamiento de un método en lugar de reemplazarlo por completo.
+
+### Clases abstractas
+En JavaScript, no hay soporte nativo para clases abstractas, pero puedes simularlas lanzando errores en métodos que deben ser implementados por las clases hijas.
+
+Ejemplo:
+```javascript
+class Animal {
+  constructor() {
+    if (new.target === Animal) {
+      throw new Error("No se puede instanciar una clase abstracta");
+    }
+  }
+
+  hacerSonido() {
+    throw new Error("Método abstracto: debe ser implementado");
+  }
+}
+
+class Perro extends Animal {
+  hacerSonido() {
+    console.log("Guau guau");
+  }
+}
+
+// const animal = new Animal(); // Error: No se puede instanciar una clase abstracta
+const miPerro = new Perro();
+miPerro.hacerSonido(); // Salida: "Guau guau"
+```
+Uso avanzado: Para definir una estructura común que las clases hijas deben seguir.
+
+
+## Encapsulación (private, public, #propiedadPrivada)
+La encapsulación es un principio de la programación orientada a objetos que permite ocultar los detalles internos de una clase y exponer solo lo necesario.
+
+### Propiedades privadas (#propiedadPrivada)
+En JavaScript, las propiedades privadas se definen usando el prefijo #. Estas propiedades solo son accesibles dentro de la clase.
+
+Ejemplo:
+```javascript
+class CuentaBancaria {
+  #saldo; // Propiedad privada
+
+  constructor(saldoInicial) {
+    this.#saldo = saldoInicial;
+  }
+
+  depositar(cantidad) {
+    this.#saldo += cantidad;
+  }
+
+  obtenerSaldo() {
+    return this.#saldo;
+  }
+}
+
+const cuenta = new CuentaBancaria(1000);
+cuenta.depositar(500);
+console.log(cuenta.obtenerSaldo()); // Salida: 1500
+// console.log(cuenta.#saldo); // Error: Propiedad privada no accesible
+```
+### Métodos privados
+Los métodos también pueden ser privados usando #.
+
+Ejemplo:
+```javascript
+
+class CuentaBancaria {
+  #saldo;
+
+  constructor(saldoInicial) {
+    this.#saldo = saldoInicial;
+  }
+
+  #validarCantidad(cantidad) {
+    return cantidad > 0;
+  }
+
+  depositar(cantidad) {
+    if (this.#validarCantidad(cantidad)) {
+      this.#saldo += cantidad;
+    }
+  }
+}
+```
+### Métodos Estáticos (static)
+Los métodos estáticos son métodos que pertenecen a la clase en lugar de a una instancia de la clase. Se llaman directamente desde la clase, no desde un objeto.
+
+Ejemplo:
+```javascript
+class Matemáticas {
+  static sumar(a, b) {
+    return a + b;
+  }
+
+  static PI = 3.1416; // Propiedad estática
+}
+
+console.log(Matemáticas.sumar(2, 3)); // Salida: 5
+console.log(Matemáticas.PI); // Salida: 3.1416
+```
+Uso común: Para funciones utilitarias o constantes relacionadas con la clase.
+
+### Propiedades privadas estáticas
+Las propiedades privadas también pueden ser estáticas.
+
+Ejemplo:
+```javascript
+class Contador {
+  static #contador = 0;
+
+  static incrementar() {
+    this.#contador++;
+  }
+
+  static obtenerContador() {
+    return this.#contador;
+  }
+}
+
+Contador.incrementar();
+console.log(Contador.obtenerContador()); // Salida: 1
+```
+Uso avanzado: Para mantener un estado privado compartido entre todas las instancias de una clase.
+
+### Métodos privados estáticos
+Los métodos privados también pueden ser estáticos.
+
+Ejemplo:
+```javascript
+class Matemáticas {
+  static #validarNumero(numero) {
+    return typeof numero === "number";
+  }
+
+  static sumar(a, b) {
+    if (this.#validarNumero(a) && this.#validarNumero(b)) {
+      return a + b;
+    }
+    throw new Error("Los argumentos deben ser números");
+  }
+}
+
+console.log(Matemáticas.sumar(2, 3)); // Salida: 5
+```
+Uso avanzado: Para encapsular lógica interna en métodos estáticos.
+
+
+
+## Prototipos y Herencia Prototípica
+### Prototipos
+En JavaScript, cada objeto tiene un prototipo, que es otro objeto del cual hereda propiedades y métodos. Esto forma una cadena de prototipos.
+
+Ejemplo:
+```javascript
+
+const animal = {
+  hacerSonido() {
+    console.log("Sonido genérico");
+  }
+};
+
+const perro = Object.create(animal);
+perro.hacerSonido(); // Salida: "Sonido genérico"
+```
+Object.create: Crea un nuevo objeto con un prototipo específico.
+
+
+### Herencia Prototípica
+La herencia prototípica es el mecanismo por el cual un objeto hereda propiedades y métodos de otro objeto.
+
+Ejemplo:
+```javascript
+
+function Animal(nombre) {
+  this.nombre = nombre;
+}
+
+Animal.prototype.hacerSonido = function() {
+  console.log("Sonido genérico");
+};
+
+function Perro(nombre, raza) {
+  Animal.call(this, nombre); // Llama al constructor de Animal
+  this.raza = raza;
+}
+
+Perro.prototype = Object.create(Animal.prototype); // Hereda de Animal
+Perro.prototype.constructor = Perro; // Corrige el constructor
+
+Perro.prototype.hacerSonido = function() {
+  console.log("Guau guau");
+};
+
+const miPerro = new Perro("Rex", "Labrador");
+miPerro.hacerSonido(); // Salida: "Guau guau"
+```
+prototype: Es el objeto desde el cual se heredan propiedades y métodos.
+
+Object.create: Crea un nuevo objeto con un prototipo específico.
+
+### Herencia de métodos estáticos
+Los métodos estáticos también se heredan.
+
+Ejemplo:
+```javascript
+class Animal {
+  static describir() {
+    return "Soy un animal";
+  }
+}
+
+class Perro extends Animal {}
+
+console.log(Perro.describir()); // Salida: "Soy un animal"
+```
+Uso avanzado: Para compartir funcionalidades estáticas entre clases relacionadas.
+
+### Acceso a propiedades estáticas desde métodos estáticos
+Puedes acceder a propiedades estáticas dentro de métodos estáticos usando this.
+
+Ejemplo:
+```javascript
+
+class Configuracion {
+  static nombreAplicacion = "Mi App";
+
+  static obtenerNombre() {
+    return this.nombreAplicacion;
+  }
+}
+
+console.log(Configuracion.obtenerNombre()); // Salida: "Mi App"
+```
+Uso avanzado: Para mantener configuraciones globales en una clase.
+
+### Modificación de prototipos nativos
+Puedes extender los prototipos de objetos nativos (como Array o String), pero esto se considera una mala práctica en la mayoría de los casos.
+
+Ejemplo (no recomendado):
+```javascript
+Array.prototype.ultimo = function() {
+  return this[this.length - 1];
+};
+
+const numeros = [1, 2, 3];
+console.log(numeros.ultimo()); // Salida: 3
+```
+Uso avanzado: Solo en casos muy específicos y con mucho cuidado, ya que puede causar conflictos.
+
+
+### Composición sobre herencia
+En lugar de usar herencia, puedes usar composición para construir objetos combinando funcionalidades.
+
+Ejemplo:
+```javascript
+const Nadador = {
+  nadar() {
+    console.log("Nadando...");
+  }
+};
+
+const Volador = {
+  volar() {
+    console.log("Volando...");
+  }
+};
+
+class Pato {
+  constructor() {
+    Object.assign(this, Nadador, Volador);
+  }
+}
+
+const pato = new Pato();
+pato.nadar(); // Salida: "Nadando..."
+pato.volar(); // Salida: "Volando..."
+```
+Uso avanzado: Para evitar jerarquías complejas y favorecer la reutilización de código.
+
+
+## Seleccionar elementos
+### getElementById()
+Este método selecciona un elemento del DOM por su atributo id. Es uno de los métodos más rápidos y específicos para seleccionar elementos.
+
+Sintaxis:
+
+```javascript
+let elemento = document.getElementById('idDelElemento');
+```
+Ejemplo:
+
+```html
+<div id="miDiv">Hola Mundo</div>
+```
+
+```javascript
+let div = document.getElementById('miDiv');
+console.log(div.textContent); // "Hola Mundo"
+```
+Notas avanzadas:
+
+Solo puede seleccionar un elemento, ya que los id deben ser únicos en el documento.
+
+Si no encuentra el elemento, devuelve null.
+
+### querySelector()
+Este método es más versátil y permite seleccionar elementos usando selectores CSS. Puede seleccionar el primer elemento que coincida con el selector.
+
+Sintaxis:
+
+```javascript
+let elemento = document.querySelector('selectorCSS');
+```
+Ejemplos:
+
+Seleccionar por id:
+
+```javascript
+let div = document.querySelector('#miDiv');
+```
+Seleccionar por clase:
+
+```javascript
+let elemento = document.querySelector('.miClase');
+```
+Seleccionar por etiqueta:
+
+```javascript
+let parrafo = document.querySelector('p');
+```
+Seleccionar por atributo:
+
+```javascript
+let input = document.querySelector('input[type="text"]');
+```
+Notas avanzadas:
+
+Si no encuentra ningún elemento, devuelve null.
+
+Puedes usar cualquier selector CSS válido.
+
+Para seleccionar todos los elementos que coincidan con un selector, usa querySelectorAll():
+
+```javascript
+let elementos = document.querySelectorAll('.miClase');
+```
+
+## Modificar contenido
+### .textContent
+Esta propiedad permite obtener o establecer el texto contenido dentro de un elemento. Ignora las etiquetas HTML y solo devuelve el texto.
+
+Sintaxis:
+
+```javascript
+elemento.textContent = 'Nuevo texto';
+```
+Ejemplo:
+
+```html
+<p id="miParrafo">Este es un <strong>párrafo</strong>.</p>
+```
+```javascript
+let parrafo = document.getElementById('miParrafo');
+console.log(parrafo.textContent); // "Este es un párrafo."
+parrafo.textContent = 'Texto cambiado';
+console.log(parrafo.textContent); // "Texto cambiado"
+```
+Notas avanzadas:
+
+Es seguro contra ataques XSS (Cross-Site Scripting), ya que no interpreta HTML.
+
+Si asignas HTML como texto, este no se renderizará, sino que se mostrará como texto plano.
+
+### .innerHTML
+Esta propiedad permite obtener o establecer el contenido HTML dentro de un elemento. A diferencia de .textContent, sí interpreta las etiquetas HTML.
+
+Sintaxis:
+
+```javascript
+elemento.innerHTML = 'Nuevo contenido HTML';
+```
+Ejemplo:
+
+```html
+
+<div id="miDiv">Hola Mundo</div>
+```
+
+```javascript
+
+let div = document.getElementById('miDiv');
+div.innerHTML = '<strong>Hola</strong> Mundo';
+console.log(div.innerHTML); // "<strong>Hola</strong> Mundo"
+```
+Notas avanzadas:
+
+Es útil para insertar contenido dinámico con etiquetas HTML.
+
+¡Cuidado con XSS! Si insertas contenido no confiable, podrías exponer tu aplicación a ataques de inyección de código.
+
+Para evitar XSS, sanitiza el contenido o usa .textContent cuando no necesites HTML.
+
+### .value
+Esta propiedad se usa principalmente para obtener o establecer el valor de elementos de formulario, como 
+```
+<input>, <textarea>, y <select>.
+```
+Sintaxis:
+
+```javascript
+elemento.value = 'Nuevo valor';
+```
+Ejemplo:
+
+```html
+<input type="text" id="miInput" value="Texto inicial">
+```
+```javascript
+let input = document.getElementById('miInput');
+console.log(input.value); // "Texto inicial"
+input.value = 'Nuevo texto';
+console.log(input.value); // "Nuevo texto"
+```
+Notas avanzadas:
+
+Solo funciona con elementos de formulario.
+
+Para elementos como ``<select>``, devuelve el valor de la opción seleccionada.
+
+Para ``<input type="checkbox"> o <input type="radio">``, usa .checked en lugar de .value.
+
+Ejemplo avanzado combinado
+```html
+<div id="contenedor">
+  <p class="texto">Este es un párrafo.</p>
+  <input type="text" id="entrada" value="Escribe algo">
+  <button id="boton">Cambiar contenido</button>
+</div>
+```
+```javascript
+// Seleccionar elementos
+let contenedor = document.getElementById('contenedor');
+let parrafo = document.querySelector('.texto');
+let input = document.getElementById('entrada');
+let boton = document.getElementById('boton');
+
+// Modificar contenido al hacer clic en el botón
+boton.addEventListener('click', function () {
+  // Cambiar el texto del párrafo
+  parrafo.textContent = 'Texto cambiado con JavaScript';
+
+  // Insertar HTML dinámico
+  contenedor.innerHTML += '<p>Nuevo párrafo añadido</p>';
+
+  // Obtener el valor del input
+  console.log(input.value);
+});
+```
+### Resumen
+**Seleccionar elementos:**
+
+```getElementById():``` Selecciona por id.
+
+```querySelector():``` Selecciona usando selectores CSS.
+
+**Modificar contenido:**
+
+```.textContent:``` Para texto plano.
+
+```.innerHTML:``` Para contenido HTML.
+
+```.value:``` Para valores de formularios.
+
+## Modificar estilos
+### .style
+La propiedad .style permite modificar los estilos CSS de un elemento directamente desde JavaScript. Puedes acceder a las propiedades CSS como propiedades del objeto .style.
+
+Sintaxis:
+
+```javascript
+elemento.style.propiedadCSS = 'valor';
+```
+Ejemplo:
+
+```html
+<div id="miDiv">Hola Mundo</div>
+```
+```javascript
+let div = document.getElementById('miDiv');
+div.style.color = 'red'; // Cambia el color del texto a rojo
+div.style.backgroundColor = 'yellow'; // Cambia el fondo a amarillo
+div.style.fontSize = '20px'; // Cambia el tamaño de la fuente
+```
+Notas avanzadas:
+
+Las propiedades CSS que tienen guiones (como background-color) se convierten en camelCase en JavaScript (backgroundColor).
+
+Los valores deben ser cadenas de texto (por ejemplo, '20px', '#ff0000').
+
+Este método es útil para cambios de estilo puntuales, pero no es recomendable para estilos complejos (mejor usar clases CSS).
+
+### .classList.add()
+Este método añade una o más clases a un elemento. Es útil para aplicar estilos predefinidos en CSS.
+
+Sintaxis:
+
+```javascript
+
+elemento.classList.add('clase1', 'clase2', ...);
+```
+Ejemplo:
+
+```html
+
+<div id="miDiv">Hola Mundo</div>
+```
+```css
+.destacado {
+  color: red;
+  font-weight: bold;
+}
+```
+```javascript
+let div = document.getElementById('miDiv');
+div.classList.add('destacado'); // Añade la clase "destacado"
+```
+Notas avanzadas:
+
+Puedes añadir múltiples clases separándolas por comas.
+
+Si la clase ya existe, no se duplica.
+
+### .classList.remove()
+Este método elimina una o más clases de un elemento.
+
+Sintaxis:
+
+```javascript
+elemento.classList.remove('clase1', 'clase2', ...);
+```
+Ejemplo:
+
+```javascript
+let div = document.getElementById('miDiv');
+div.classList.remove('destacado'); // Elimina la clase "destacado"
+```
+Notas avanzadas:
+
+Si la clase no existe, no ocurre ningún error.
+
+Puedes eliminar múltiples clases a la vez.
+
+### .classList.toggle() (Extra)
+Este método alterna (añade o elimina) una clase. Si la clase existe, la elimina; si no existe, la añade.
+
+Sintaxis:
+
+```javascript
+elemento.classList.toggle('clase');
+```
+Ejemplo:
+
+```javascript
+let div = document.getElementById('miDiv');
+div.classList.toggle('destacado'); // Alterna la clase "destacado"
+```
+## Crear y eliminar elementos
+### createElement()
+Este método crea un nuevo elemento HTML. Sin embargo, el elemento no se añade automáticamente al DOM; debes insertarlo manualmente.
+
+Sintaxis:
+
+```javascript
+let nuevoElemento = document.createElement('etiqueta');
+```
+Ejemplo:
+
+```javascript
+
+let nuevoParrafo = document.createElement('p');
+nuevoParrafo.textContent = 'Este es un nuevo párrafo.';
+```
+Notas avanzadas:
+
+Puedes crear cualquier elemento HTML válido (por ejemplo, 'div', 'span', 'img', etc.).
+
+Después de crearlo, debes insertarlo en el DOM usando métodos como appendChild() o insertBefore().
+
+### appendChild()
+Este método añade un elemento como último hijo de otro elemento.
+
+Sintaxis:
+
+```javascript
+
+elementoPadre.appendChild(nuevoElemento);
+```
+Ejemplo:
+
+```html
+<div id="contenedor"></div>
+```
+```javascript
+let contenedor = document.getElementById('contenedor');
+let nuevoParrafo = document.createElement('p');
+nuevoParrafo.textContent = 'Este es un nuevo párrafo.';
+contenedor.appendChild(nuevoParrafo);
+```
+Notas avanzadas:
+
+Si el elemento ya existe en el DOM, se moverá a la nueva posición.
+
+Puedes usarlo para mover elementos dentro del DOM.
+
+### removeChild()
+Este método elimina un elemento hijo de su elemento padre.
+
+Sintaxis:
+
+```javascript
+elementoPadre.removeChild(elementoHijo);
+```
+Ejemplo:
+
+```html
+<div id="contenedor">
+  <p id="parrafo">Este párrafo será eliminado.</p>
+</div>
+```
+```javascript
+let contenedor = document.getElementById('contenedor');
+let parrafo = document.getElementById('parrafo');
+contenedor.removeChild(parrafo); // Elimina el párrafo
+```
+Notas avanzadas:
+
+Si no estás seguro de si el elemento existe, verifica primero:
+
+```javascript
+if (parrafo) {
+  contenedor.removeChild(parrafo);
+}
+```
+También puedes usar elemento.remove() para eliminar un elemento directamente:
+
+```javascript
+parrafo.remove(); // Elimina el párrafo sin necesidad de referenciar al padre
+```
+Ejemplo avanzado combinado
+```html
+<div id="contenedor">
+  <p class="texto">Este es un párrafo.</p>
+  <button id="boton">Cambiar estilo y contenido</button>
+</div>
+```
+```javascript
+// Seleccionar elementos
+let contenedor = document.getElementById('contenedor');
+let parrafo = document.querySelector('.texto');
+let boton = document.getElementById('boton');
+
+// Modificar estilos y contenido al hacer clic en el botón
+boton.addEventListener('click', function () {
+  // Cambiar estilos con .style
+  parrafo.style.color = 'blue';
+  parrafo.style.fontSize = '24px';
+
+  // Añadir una clase con .classList.add()
+  parrafo.classList.add('destacado');
+
+  // Crear un nuevo elemento
+  let nuevoParrafo = document.createElement('p');
+  nuevoParrafo.textContent = 'Este es un nuevo párrafo añadido dinámicamente.';
+
+  // Añadir el nuevo elemento al contenedor
+  contenedor.appendChild(nuevoParrafo);
+
+  // Eliminar el párrafo original después de 3 segundos
+  setTimeout(() => {
+    contenedor.removeChild(parrafo);
+  }, 3000);
+});
+```
+### Resumen
+Modificar estilos:
+
+.style: Para estilos en línea.
+
+.classList.add(): Para añadir clases.
+
+.classList.remove(): Para eliminar clases.
+
+Crear y eliminar elementos:
+
+createElement(): Para crear nuevos elementos.
+
+appendChild(): Para añadir elementos al DOM.
+
+removeChild(): Para eliminar elementos del DOM.
+
+### addEventListener()
+El método addEventListener() permite asociar un evento a un elemento del DOM. Cuando el evento ocurre, se ejecuta una función (llamada "manejador de eventos" o "event handler").
+
+Sintaxis:
+
+```javascript
+elemento.addEventListener('evento', funcionManejadora);
+```
+Parámetros:
+
+evento: El nombre del evento (por ejemplo, 'click', 'change', 'keyup').
+
+funcionManejadora: La función que se ejecutará cuando ocurra el evento.
+
+Ejemplo básico:
+
+```html
+<button id="miBoton">Haz clic</button>
+```
+```javascript
+let boton = document.getElementById('miBoton');
+boton.addEventListener('click', function () {
+  alert('¡Hiciste clic en el botón!');
+});
+```
+Notas avanzadas:
+
+Puedes añadir múltiples eventos al mismo elemento.
+
+Puedes usar funciones anónimas (como en el ejemplo) o funciones declaradas.
+
+Para eliminar un evento, usa removeEventListener().
+
+### Eventos comunes
+### click
+El evento click se dispara cuando el usuario hace clic en un elemento.
+
+Ejemplo:
+
+```html
+<button id="miBoton">Haz clic</button>
+<p id="mensaje"></p>
+```
+```javascript
+let boton = document.getElementById('miBoton');
+let mensaje = document.getElementById('mensaje');
+
+boton.addEventListener('click', function () {
+  mensaje.textContent = '¡Hiciste clic en el botón!';
+});
+```
+Notas avanzadas:
+
+Funciona en cualquier elemento, no solo en botones.
+
+Puedes detectar clics en imágenes, enlaces, divs, etc.
+
+### change
+El evento change se dispara cuando el valor de un elemento de formulario cambia y pierde el foco (por ejemplo, en un ```<input>, <select>, o <textarea>```).
+
+Ejemplo:
+
+```html
+<input type="text" id="miInput" placeholder="Escribe algo">
+<p id="resultado"></p>
+```
+```javascript
+let input = document.getElementById('miInput');
+let resultado = document.getElementById('resultado');
+
+input.addEventListener('change', function () {
+  resultado.textContent = `Escribiste: ${input.value}`;
+});
+```
+Notas avanzadas:
+
+Para ```<input type="text">```, el evento se dispara cuando el campo pierde el foco.
+
+Para ```<select>```, se dispara cuando se selecciona una opción.
+
+Si quieres detectar cambios en tiempo real (sin perder el foco), usa el evento input.
+
+### keyup
+El evento keyup se dispara cuando el usuario suelta una tecla después de presionarla. Es útil para detectar entradas de texto en tiempo real.
+
+Ejemplo:
+
+```html
+<input type="text" id="miInput" placeholder="Escribe algo">
+<p id="resultado"></p>
+```
+```javascript
+let input = document.getElementById('miInput');
+let resultado = document.getElementById('resultado');
+
+input.addEventListener('keyup', function () {
+  resultado.textContent = `Escribiendo: ${input.value}`;
+});
+```
+Notas avanzadas:
+
+También existen eventos relacionados como keydown (cuando se presiona una tecla) y keypress (cuando se mantiene presionada una tecla).
+
+Puedes acceder a la tecla presionada usando el objeto event:
+
+```javascript
+input.addEventListener('keyup', function (event) {
+  console.log(`Tecla presionada: ${event.key}`);
+});
+```
+### Objeto event
+Cuando se ejecuta un manejador de eventos, recibe un objeto event que contiene información sobre el evento. Este objeto es útil para acceder a detalles como la tecla presionada, las coordenadas del clic, etc.
+
+Propiedades comunes del objeto event:
+
+event.target: El elemento que disparó el evento.
+
+event.type: El tipo de evento (por ejemplo, 'click', 'keyup').
+
+event.key: La tecla presionada (para eventos de teclado).
+
+event.clientX y event.clientY: Las coordenadas del clic (para eventos de ratón).
+
+Ejemplo:
+
+```javascript
+document.addEventListener('click', function (event) {
+  console.log(`Clic en: (${event.clientX}, ${event.clientY})`);
+});
+```
+### Ejemplo avanzado combinado
+```html
+<input type="text" id="miInput" placeholder="Escribe algo">
+<button id="miBoton">Haz clic</button>
+<p id="resultado"></p>
+```
+```javascript
+// Seleccionar elementos
+let input = document.getElementById('miInput');
+let boton = document.getElementById('miBoton');
+let resultado = document.getElementById('resultado');
+
+// Evento keyup para el input
+input.addEventListener('keyup', function (event) {
+  resultado.textContent = `Escribiendo: ${input.value}`;
+  console.log(`Tecla presionada: ${event.key}`);
+});
+
+// Evento click para el botón
+boton.addEventListener('click', function () {
+  resultado.textContent = `Texto final: ${input.value}`;
+});
+
+// Evento change para el input
+input.addEventListener('change', function () {
+  console.log('El valor del input cambió.');
+});
+```
+Resumen
+
+addEventListener(): Para registrar eventos en elementos.
+
+Eventos comunes:
+
+click: Para clics del ratón.
+
+change: Para cambios en elementos de formulario.
+
+keyup: Para detectar teclas presionadas.
+
+Objeto event: Proporciona información detallada sobre el evento.
