@@ -349,8 +349,122 @@ aleatoria para la computadora. Luego, determina el ganador. */
 //   console.log("Perdiste.");
 // }
 
-let numeros = [1, 2, 3, 4];
-let suma = numeros.reduce(function(acumulador, numero) {
-  return acumulador + numero;
-}, 0);
-console.log(suma); 
+// let numeros = [1, 2, 3, 4];
+// let suma = numeros.reduce(function(acumulador, numero) {
+//   return acumulador + numero;
+// }, 0);
+// console.log(suma); 
+/* ejercicio 8 */
+// const gifts1 = [3, 1, 2, 3, 4, 2, 5]
+// const preparedGifts1 = prepareGifts(gifts1)
+// console.log(preparedGifts1) // [1, 2, 3, 4, 5]
+
+// const gifts2 = [6, 5, 5, 5, 5]
+// const preparedGifts2 = prepareGifts(gifts2)
+// console.log(preparedGifts2) // [5, 6]
+
+// const gifts3 = []
+// const preparedGifts3 = prepareGifts(gifts3)
+// console.log(preparedGifts3) // []
+
+
+// function prepareGifts(gifts) {
+
+//   if(gifts.length===0){
+//     return []
+//   }
+
+//   let arr=gifts.sort((a, b) => a - b);
+
+//     return arr.filter((item, index) => item !== arr[index + 1]);
+  
+  
+// }
+
+/* ejercicio 9 */
+
+// createFrame(['midu', 'madeval', 'educalvolpz'])
+
+// // // Resultado esperado:
+// // ***************
+// // * midu        *
+// // * madeval     *
+// // * educalvolpz *
+// // ***************
+
+// createFrame(['midu'])
+
+// // // Resultado esperado:
+// // ********
+// // * midu *
+// // ********
+
+// createFrame(['a', 'bb', 'ccc'])
+
+// // // Resultado esperado:
+// // *******
+// // * a   *
+// // * bb  *
+// // * ccc *
+// // *******
+
+// createFrame(['a', 'bb', 'ccc', 'dddd'])
+
+// function createFrame(arr) {
+//   let max=arr[0].length;
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i].length>max) {
+//       max=arr[i].length;
+//     }
+    
+//   }
+ 
+//     console.log("*".repeat(max+4));
+//     // console.log("* "+arr[0]+(" ".repeat(max-arr[0].length))+" *");
+//     for (let j = 0; j < arr.length; j++) {
+//       console.log("* "+arr[j]+(" ".repeat(max-arr[j].length))+" *");
+//     }
+//     console.log("*".repeat(max+4));
+    
+  
+  
+// }
+/* function createFrame(names) {
+  if (names.length===0) {
+    return "*"
+  }
+  let max = names[0].length;
+  for (let i = 1; i < names.length; i++) {
+    if (names[i].length > max) {
+      max = names[i].length;
+    }
+
+  }
+
+  let resp=[]
+  resp.push("*".repeat(max + 4));
+  for (let j = 0; j < names.length; j++) {
+    resp.push("* " + names[j] + (" ".repeat(max - names[j].length)) + " *");
+  }
+  resp.push("*".repeat(max + 4));
+
+  console.log(resp.join("\n"));
+  
+  return resp
+} */
+
+  function acabanEnA(words) {
+
+    const ultimaLetra=words.every(word => word.endsWith("a"))
+    // for (const i of words) {
+    //   console.log(i.endsWith("a"));  
+    // }
+    
+    
+    return ultimaLetra
+  }
+
+
+  console.log(acabanEnA(['casa', 'asa', 'taza']));
+  console.log(acabanEnA(['casa', 'asa', 'taza', 'coche']));
+   
